@@ -1,0 +1,28 @@
+<div>
+  <p *ngIf="error">{{ error }}</p>
+  <div *ngIf="isLoading"><app-loading></app-loading></div>
+  <form *ngIf="!isLoading" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" formControlName="email" />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+      />
+    </div>
+    <div>
+      <button type="submit" [disabled]="!loginForm.valid">
+        {{ isLogin ? "Login" : "Signup" }}
+      </button>
+      <button (click)="switchMode()" type="button">
+        Switch to {{ isLogin ? "Signup" : "Login" }}
+      </button>
+    </div>
+  </form>
+</div>
+

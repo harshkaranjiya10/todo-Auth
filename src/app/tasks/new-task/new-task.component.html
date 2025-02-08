@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" formControlName="title" />
+  </div>
+  <div>
+    <label for="title">Description: </label>
+    <input
+      type="text"
+      name="description"
+      id="description"
+      formControlName="description"
+    />
+  </div>
+  <div>
+    <button type="submit" mat-stroked-button>Add</button>
+  </div>
+
+  @if(form.invalid) {
+  <h3>Add Title and Description</h3>
+  }
+</form>

@@ -1,0 +1,31 @@
+<!-- <div>
+  <p [class.completed]="task.completed">ID: {{ task.id | date: 'short' }}</p>
+  <h4 [class.completed]="task.completed"></h4>
+  <p [class.completed]="task.completed">Description: </p>
+  <button (click)="onCompleted(task)" mat-stroked-button (click)="openSnackBar('Completed', 'close')">Completed</button>
+  <button (click)="onDelete(task)" mat-stroked-button (click)="openSnackBar('Deleted', 'close')">Delete</button>
+  <hr>    
+</div> -->
+
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title [class.completed]="task.completed"> Title: {{ task.title }}</mat-card-title>
+      <mat-card-subtitle [class.completed]="task.completed"> Description: {{ task.description }}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <p [class.completed]="task.completed">ID: {{ task.id | date: 'short' }}</p>
+      <p [class.completed]="task.completed">Status: {{ task.completed ? 'Completed' : 'Pending' }}</p>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button (click)="onCompleted(task); openSnackBar('Completed', 'close')" mat-stroked-button>
+        Completed
+      </button>
+      <button (click)="onDelete(task); openSnackBar('Deleted', 'close')" mat-stroked-button>
+        Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  
+  

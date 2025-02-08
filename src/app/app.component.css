@@ -1,0 +1,33 @@
+* {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    padding: auto;
+    margin-left: 10px;
+}
+
+header {
+    border-style: solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1;
+}
+
+nav {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+a {
+    padding: 10px;
+    background-color: rgba(10, 49, 107, 0.951);
+    font-size: large;
+    margin-left: 20px;
+    color: white;
+}

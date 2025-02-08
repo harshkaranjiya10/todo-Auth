@@ -1,0 +1,23 @@
+form {
+    margin: 2em;
+}
+
+button {
+    margin-top: 1em;
+    font-size: 2em;
+    background-color: blueviolet;
+    border-radius: 15px;
+}
+
+input {
+    font-size:x-large;
+    margin-top: 10px;
+}
+
+h3 {
+    width:fit-content;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.735);
+}

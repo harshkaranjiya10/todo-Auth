@@ -1,0 +1,15 @@
+<main>
+  <section id="buttons">
+    <button routerLinkActive="active" routerLink="/new-tasks">Add Tasks</button>
+    <button (click)="SortTasks()">
+      Sorts
+      <!-- <img src="../../assets/sort.png" alt="" width="30px" height="30px" /> -->
+    </button>
+  </section>
+  @if(tasks.length == 0) {
+  <p>No tasks found</p>
+  } @else { @for (Task of tasks; track Task.id) {
+  <app-task [task]="Task"></app-task>
+  } }
+</main>
+ 
