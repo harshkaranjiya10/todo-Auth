@@ -2,13 +2,27 @@
   <h1>Todo List</h1>
   <nav>
     <a routerLinkActive="active" routerLink="/tasks">Tasks</a>
+    <a routerLinkActive="active" routerLink="/admin">Admin</a>
     @if (!isAuthenticated) {
     <a routerLinkActive="active" routerLink="/auth">Auth</a>
-    }@else {
+    } @else if (isAuthenticated) {
     <a (click)="onLogout()" routerLinkActive="active" routerLink="/tasks"
       >Log out</a
     >
     }
+
+    <!-- <a routerLinkActive="active" routerLink="/auth" *ngIf="!isAuthenticated"
+      >Auth</a
+    >
+
+    <a
+      (click)="onLogout()"
+      routerLinkActive="active"
+      routerLink="/tasks"
+      *ngIf="isAuthenticated"
+      >Log out</a
+    > -->
+
     <!-- <button routerLinkActive="active" routerLink="/new-tasks">New Tasks</button> -->
   </nav>
 </header>

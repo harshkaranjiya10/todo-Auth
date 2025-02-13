@@ -1,0 +1,31 @@
+<h2>If you know the Password & Email you are the god of this app</h2>
+
+<div>
+  <p *ngIf="error">{{ error }}</p>
+  <div *ngIf="isLoading" class="loading"><app-loading></app-loading></div>
+  <form
+    *ngIf="!isLoading"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit(loginForm)"
+  >
+    <div class="label-input">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" formControlName="email" />
+    </div>
+    <div class="label-input">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+      />
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!loginForm.valid" [style.background-color]="isLogin ? '#2be253' : 'black'">
+        {{ isLogin ? "Login" : "Signup" }}
+      </button>
+    </div>
+  </form>
+</div>

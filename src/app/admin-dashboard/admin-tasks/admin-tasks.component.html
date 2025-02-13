@@ -1,0 +1,11 @@
+<p>admin-tasks works!</p>
+
+<!-- <pre>{{ tasks | json }}</pre> -->
+
+<h1>
+  {{ selectedUser?.username }}
+</h1>
+<div *ngIf="tasks.length == 0">No tasks found</div>
+<div *ngFor="let task of tasks">
+  <app-task [task]="task"></app-task>
+</div>

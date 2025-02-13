@@ -1,0 +1,69 @@
+.admin {
+    
+}
+
+.users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tasks {
+    padding: 2em;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+
+.card {
+    background-color: rgb(130, 72, 131);
+    width: auto;
+    display: flex;
+    align-items: center;
+    color: white;
+    font: 900;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.card img {
+    padding-right: 20px;
+}
+
+.selected {
+    background-color: #cf87c2;
+}
+
+@media screen and (max-width: 600px) {
+    .admin {
+        flex-direction: column;
+    }
+
+}
+  
+
+table {
+    width: 100%;
+    background-color: #4c60c1;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+mat-form-field {
+    background-color: #4c60c1;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+}

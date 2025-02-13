@@ -1,3 +1,9 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 button {
     padding: 10px;
     background-color: rgba(10, 49, 107, 0.951);
@@ -16,3 +22,29 @@ section {
     justify-content: center;
     align-items: center;
 } */
+
+.example-card {
+    max-width: max-content;
+}
+
+.example-header-image {
+    background-size: cover;
+}
+
+mat-card {
+    background-color: rgba(77, 128, 191, 0.841);
+    margin-top: 1em;
+}
+
+.tasks-container {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+    /* max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px; 
+    margin-bottom: 20px; 
+    scrollbar-arrow-color: transparent;
+    scrollbar-base-color: transparent; */
+  }

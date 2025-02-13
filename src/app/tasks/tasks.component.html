@@ -1,4 +1,10 @@
 <main>
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <img mat-card-avatar src="favicon.ico" alt="" />
+      <mat-card-title>{{ username }}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
   <section id="buttons">
     <button routerLinkActive="active" routerLink="/new-tasks">Add Tasks</button>
     <button (click)="SortTasks()">
@@ -6,10 +12,19 @@
       <!-- <img src="../../assets/sort.png" alt="" width="30px" height="30px" /> -->
     </button>
   </section>
-  @if(tasks.length == 0) {
-  <p>No tasks found</p>
-  } @else { @for (Task of tasks; track Task.id) {
-  <app-task [task]="Task"></app-task>
-  } }
+  <div class="tasks-container">
+    @if(tasks.length == 0) {
+    <p>No tasks found</p>
+    } @else { @for (Task of tasks; track Task.id) {
+    <app-task [task]="Task"></app-task>
+    } 
+    <!-- <form  [formGroup]="editForm" (ngSubmit)="saveTask(selectedTask)">
+      <label>Title:</label>
+      <input formControlName="title" />
+      <label>Description:</label>
+      <textarea formControlName="description"></textarea>
+      <button (click)="saveTask(selectedTask)">Save</button>
+    </form> -->
+  }
+  </div>
 </main>
- 

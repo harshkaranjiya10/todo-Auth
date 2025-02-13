@@ -1,12 +1,16 @@
 <div>
   <p *ngIf="error">{{ error }}</p>
-  <div *ngIf="isLoading"><app-loading></app-loading></div>
-  <form *ngIf="!isLoading" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-    <div>
+  <div *ngIf="isLoading" class="loading"><app-loading></app-loading></div>
+  <form
+    *ngIf="!isLoading"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit(loginForm)"
+  >
+    <div class="label-input">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" formControlName="email" />
     </div>
-    <div>
+    <div class="label-input">
       <label for="password">Password</label>
       <input
         type="password"
@@ -16,13 +20,65 @@
       />
     </div>
     <div>
-      <button type="submit" [disabled]="!loginForm.valid">
-        {{ isLogin ? "Login" : "Signup" }}
-      </button>
-      <button (click)="switchMode()" type="button">
-        Switch to {{ isLogin ? "Signup" : "Login" }}
-      </button>
+      <fieldset *ngIf="!isLogin" formGroupName="personalForm">
+      <h4>Personal Details</h4>
+      <div class="label-input">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email" />
+      </div>
+        <div class="label-input">
+            <label for="username">Username</label>
+            <input type="username" id="username" name="username" formControlName="username" />
+          </div>
+          <div class="label-input">
+            <label for="phone">Phone</label>
+            <input
+              type="phone"
+              id="phone"
+              name="phone"
+              formControlName="phone"
+            />
+          </div>
+          <div class="label-input">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" formControlName="city" placeholder="eg. Surat"/>
+          </div>
+          <div class="label-input">
+            <mat-form-field>
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="dob" formControlName="dob">
+              <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+              <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field>
+            {{dob}}   
+           <!--  <label for="dob">Date of Birth</label>
+            <input type="text" id="dob" name="dob" formControlName="dob" placeholder="ddmmyyyy" /> -->
+          </div>
+          <div class="label-input">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" formControlName="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="">Prefer not to say</option>
+            </select>
+          </div>
+          
+        </fieldset>
+      </div>
+    
+    <div class="login-signup">
+      <div>
+        <button type="submit" [disabled]="!loginForm.valid">
+          {{ isLogin ? "Login" : "Signup" }}
+        </button>
+      </div>
+      <div>
+        <p class="horizontal-line"> <span>OR</span></p>
+        <button (click)="switchMode()" type="button" class="switch">
+          {{ isLogin ? "Signup" : "Login" }}
+        </button>
+      </div>
     </div>
+    
   </form>
 </div>
-

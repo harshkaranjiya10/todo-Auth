@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
     RouterOutlet,
     RouterLinkActive,
     RouterLink,
-    HeaderComponent,
     HttpClientModule,
   ],
   providers: [AuthService],
@@ -28,7 +27,10 @@ export class AppComponent implements OnDestroy, OnInit {
   ngOnInit() {
     this.authService.autoLogin();
     this.userSub = this.authService.user.subscribe((user) => {
+      console.log(user);
+      
       this.isAuthenticated = !!user;
+      console.log(user);
       console.log(!user);
       console.log(!!user);
     });
@@ -38,5 +40,6 @@ export class AppComponent implements OnDestroy, OnInit {
   }
   onLogout() {
     this.authService.logout();
+    // this.isAuthenticated = false; 
   }
 }

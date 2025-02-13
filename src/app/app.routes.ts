@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth/auth.component';
 import { TasksComponent } from './tasks/tasks.component';
-import { AuthGuard } from './auth/auth/auth.guard';
-import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { AuthGuard, AuthGuard2 } from './auth/auth/auth.guard';
+import { UsersComponent } from './admin-dashboard/users/users.component';
 
 export const routes: Routes = [
   {
@@ -28,8 +28,16 @@ export const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
-  /* {
-        path: 'new-tasks',
-        component: NewTasksComponent
-    } */
+  {
+    path: 'admin-tasks/:email',
+    loadComponent: () => import('./admin-dashboard/admin-tasks/admin-tasks.component').then((m) => m.AdminTasksComponent),
+  },
+  {
+    path: "admin",
+    loadComponent: () => import('./admin-dashboard/admin-dashboard.component').then((m)=>m.AdminDashboardComponent)
+  }, 
+  {
+    path: "users",
+    loadComponent: () => import('./admin-dashboard/users/users.component').then((m)=>m.UsersComponent)
+  }
 ];

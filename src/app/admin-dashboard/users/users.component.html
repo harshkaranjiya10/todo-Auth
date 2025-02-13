@@ -1,0 +1,83 @@
+<div class="admin">
+  <section id="users">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="announceSortChange($event)">
+      <ng-container matColumnDef="profile">
+        <th mat-header-cell *matHeaderCellDef> Profile </th>
+        <td mat-cell *matCellDef="let element"> <img src="../../../favicon.ico" alt="" /> </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by username"> Username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by city"> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> 
+          <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select (selectionChange)="onGenderChange($event.value)">
+              <mat-option>None</mat-option>
+              @for (gender of gender; track gender) {
+                <mat-option [value]="gender">{{gender}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field> 
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender.length ? element.gender : '-' }} </td>
+      </ng-container>
+      <ng-container matColumnDef="dob">
+        
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by dob"> 
+          <mat-form-field>
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="dob" (dateInput)="onDateChange($event.value)" >
+            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+            <mat-datepicker #dob></mat-datepicker>
+          </mat-form-field>  
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.dob | date:'mediumDate'}} </td>
+      </ng-container>
+      
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+    
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">No data matching the filter</td>
+      </tr>
+    </table>
+    
+    
+
+
+    <!-- <div *ngFor="let user of users">
+      <div class="card" (click)="onClick(user)"  [ngClass]="{'selected': user === selectedUser}">
+        <img src="../../../favicon.ico" alt="" />
+        <div>{{ user.resData.email }}</div>
+        <div>{{ user.personalDetails.username }}</div>
+        <div>{{ user.personalDetails.city }}</div>
+        <div>{{ user.personalDetails.dob }}</div>
+        <div>{{ user.personalDetails.phone }}</div>
+        <div>{{ user.personalDetails.gender }}</div>
+      </div>
+    </div> -->
+  </section>
+  <section id="tasks">
+    
+  </section>
+</div>
+
